@@ -19,7 +19,6 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
   const [{ matrix }, dispatch] = useContext(MatrixTableContext)
 
   // Handlers ---------------------------------------------------------------- //
-  // You can save (to api) the matrix here. Remember to update originalMatrix when done.
   const cancel = async () => {
     const tsmonthlite = document.getElementById("tsmonthlite")
     const tsmonthstd = document.getElementById("tsmonthstd")
@@ -39,6 +38,7 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
       type: 'SET_MATRIX',
     })
   }
+
   const save = async () => {
     const tsmonthlite = document.getElementById("tsmonthlite")
     const tsmonthstd = document.getElementById("tsmonthstd")
@@ -65,20 +65,30 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
           "unlimited" : matrix["24months"].unlimited
       },
     }
+
+    //Save (to api) the matrix here.
     const res = await fetch('http://localhost:3000/api/save-pricing', {
           method: 'POST',
           body: JSON.stringify(data),
           headers: { 'Content-Type': 'application/json' }
+          //if Joi validate shows the error below
+          //Error [ValidationError]: "value" must be of type object
+          //You must set the headers to
+          //{ 'Content-Type': 'application/json' }
     })
     console.log(res)
+
+    //Remember to update originalMatrix when done.
+
   }
+
   const clear = async () => {
-    console.log("original")
     dispatch({
       type: 'SET_ORIGINAL_MATRIX',
       payload: 0
     })
   }
+
   const edit = async () => {
     const tsmonthlite = document.getElementById("tsmonthlite")
     const tsmonthstd = document.getElementById("tsmonthstd")

@@ -169,13 +169,16 @@ const reducer = (state: MatrixTableState, action: MatrixAction): MatrixTableStat
 }
 
 // Creating the context, you don't need to change this.
-export const MatrixTableContext = createContext<[MatrixTableState, import('react').Dispatch<MatrixAction>]>([defaultState, () => {}])
+export const MatrixTableContext = createContext
+  <[MatrixTableState, import('react').Dispatch<MatrixAction>]>
+    ([defaultState, () => {}])
 
 /**
  * This is the provider that hosts the state. You don't need to change this.
  * @param param0
  */
-export const MatrixTableContextProvider: import('react').FC<ProviderProps> = ({ initialMatrix, children }) => {
+export const MatrixTableContextProvider: import('react').FC<ProviderProps> =
+  ({ initialMatrix, children }) => {
   const state = useReducer(reducer, { matrix: initialMatrix || emptyMatrix, originalMatrix: initialMatrix || emptyMatrix })
 
   return (
