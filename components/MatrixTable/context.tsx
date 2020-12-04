@@ -118,7 +118,6 @@ const reducer = (state: MatrixTableState, action: MatrixAction): MatrixTableStat
         ...state,
       }
     case 'SET_ORIGINAL_MATRIX':
-      console.log("orig")
       state.matrix["36months"].lite = 0
       state.matrix["36months"].standard = 0
       state.matrix["36months"].unlimited = 0
@@ -130,8 +129,6 @@ const reducer = (state: MatrixTableState, action: MatrixAction): MatrixTableStat
       }
     case '36MONTH_LITE_ACTION':
       console.log(action.payload)
-      console.log(state.originalMatrix["36months"].lite)
-      console.log(state.matrix["36months"].lite)
       state.matrix["36months"].lite = action.payload
       return {
         ...state
