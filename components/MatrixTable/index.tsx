@@ -34,6 +34,7 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
     tfmonthstd.setAttribute('readonly', 'readonly')
     tfmonthunlimited.setAttribute('readonly', 'readonly')
 
+    //cancel the change
     dispatch({
       type: 'SET_MATRIX',
     })
@@ -79,12 +80,14 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
     console.log(res)
 
     //Remember to update originalMatrix when done.
-
+    dispatch({
+      type: 'SET_ORIGINAL_MATRIX',
+    })
   }
 
   const clear = async () => {
     dispatch({
-      type: 'SET_ORIGINAL_MATRIX',
+      type: 'CLEAR_MATRIX',
       payload: 0
     })
   }
