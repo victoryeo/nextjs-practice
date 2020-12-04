@@ -57,8 +57,10 @@ type MatrixAction = {
 } | {
   type: '24MONTH_UNLIMITED_ACTION',
   payload: any
+} | {
+  type: 'CLEAR_MATRIX',
+  payload: any
 }
-// Here you will need to add your other action(s) in order to edit the pricing (remove SOME_ACTION).
 
 /**
  * This is for the Provider component. No need to change.
@@ -111,13 +113,24 @@ const defaultState: MatrixTableState = {
 const reducer = (state: MatrixTableState, action: MatrixAction): MatrixTableState => {
   switch(action.type) {
     case 'SET_MATRIX':
-      console.log("matrix")
-      console.log(state.originalMatrix["36months"].lite)
-      state.matrix["36months"].lite = state.originalMatrix["36months"].lite
+      console.log("set matrix")
+      console.log(state.matrix["24months"].lite)
+      state.matrix["36months"] = state.originalMatrix["36months"]
+      state.matrix['24months'] = state.originalMatrix['24months']
+      console.log(state.matrix["24months"].lite)
       return {
         ...state,
       }
     case 'SET_ORIGINAL_MATRIX':
+      console.log("original matrix")
+      console.log(state.originalMatrix["24months"].lite)
+      state.originalMatrix["36months"] = state.matrix["36months"]
+      state.originalMatrix['24months'] = state.matrix['24months']
+      console.log(state.originalMatrix["24months"].lite)
+      return {
+        ...state,
+      }
+    case 'CLEAR_MATRIX':
       state.matrix["36months"].lite = 0
       state.matrix["36months"].standard = 0
       state.matrix["36months"].unlimited = 0
