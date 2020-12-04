@@ -1,4 +1,6 @@
 import * as Joi from '@hapi/joi'
+import fs from 'fs'
+import path from 'path'
 
 // This is the JOI validation schema, you define
 // all the validation logic in here, then run
@@ -34,7 +36,8 @@ export default async (req: import('next').NextApiRequest, res: import('next').Ne
     //data = await schema.validateAsync(req.body)
 
     // Write the new matrix to public/pricing.json
-
+    fs.writeFileSync(path.resolve('./public/pricing.json'),
+      JSON.stringify(req.body))
 
     res.statusCode = 200
     res.json(data)
