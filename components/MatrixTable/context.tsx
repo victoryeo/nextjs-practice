@@ -115,8 +115,8 @@ const reducer = (state: MatrixTableState, action: MatrixAction): MatrixTableStat
     case 'SET_MATRIX':
       console.log("set matrix")
       console.log(state.matrix["24months"].lite)
-      state.matrix["36months"] = state.originalMatrix["36months"]
-      state.matrix['24months'] = state.originalMatrix['24months']
+      //deep copy
+      state.matrix = JSON.parse(JSON.stringify(state.originalMatrix))
       console.log(state.matrix["24months"].lite)
       return {
         ...state,
@@ -124,8 +124,7 @@ const reducer = (state: MatrixTableState, action: MatrixAction): MatrixTableStat
     case 'SET_ORIGINAL_MATRIX':
       console.log("original matrix")
       console.log(state.originalMatrix["24months"].lite)
-      state.originalMatrix["36months"] = state.matrix["36months"]
-      state.originalMatrix['24months'] = state.matrix['24months']
+      state.originalMatrix = JSON.parse(JSON.stringify(state.matrix))
       console.log(state.originalMatrix["24months"].lite)
       return {
         ...state,
