@@ -165,6 +165,7 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
       <tr>
       <td>24months:</td>
       <td><input id="tfmonthlite"
+        readonly="readonly"
         size="6"
         value={matrix["24months"].lite || ''}
         onChange={(e) => dispatch({
@@ -172,6 +173,7 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
           payload: e.target.value
         })} /></td>
       <td><input id="tfmonthstd"
+        readonly="readonly"
         size="6"
         value={matrix["24months"].standard || ''}
         onChange={(e) => dispatch({
@@ -179,6 +181,7 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
           payload: e.target.value
         })} /></td>
       <td><input id="tfmonthunlimited"
+        readonly="readonly"
         size="6"
         value={matrix["24months"].unlimited || ''}
         onChange={(e) => dispatch({
