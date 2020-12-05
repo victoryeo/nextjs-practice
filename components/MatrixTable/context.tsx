@@ -130,12 +130,9 @@ const reducer = (state: MatrixTableState, action: MatrixAction): MatrixTableStat
         ...state,
       }
     case 'CLEAR_MATRIX':
-      state.matrix["36months"].lite = 0
-      state.matrix["36months"].standard = 0
-      state.matrix["36months"].unlimited = 0
-      state.matrix["24months"].lite = 0
-      state.matrix["24months"].standard = 0
-      state.matrix["24months"].unlimited = 0
+      Object.keys(state.matrix).forEach(k => state.matrix[k].lite = 0)
+      Object.keys(state.matrix).forEach(k => state.matrix[k].standard = 0)
+      Object.keys(state.matrix).forEach(k => state.matrix[k].unlimited = 0)
       return {
         ...state
       }
