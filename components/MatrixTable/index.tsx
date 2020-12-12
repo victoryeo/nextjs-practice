@@ -27,12 +27,12 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
     const tfmonthstd = document.getElementById("tfmonthstd")
     const tfmonthunlimited = document.getElementById("tfmonthunlimited")
 
-    tsmonthlite.setAttribute('readonly', 'readonly')
-    tsmonthstd.setAttribute('readonly', 'readonly')
-    tsmonthunlimited.setAttribute('readonly', 'readonly')
-    tfmonthlite.setAttribute('readonly', 'readonly')
-    tfmonthstd.setAttribute('readonly', 'readonly')
-    tfmonthunlimited.setAttribute('readonly', 'readonly')
+    tsmonthlite.setAttribute('readOnly', 'readonly')
+    tsmonthstd.setAttribute('readOnly', 'readonly')
+    tsmonthunlimited.setAttribute('readOnly', 'readonly')
+    tfmonthlite.setAttribute('readOnly', 'readonly')
+    tfmonthstd.setAttribute('readOnly', 'readonly')
+    tfmonthunlimited.setAttribute('readOnly', 'readonly')
 
     //cancel the change
     dispatch({
@@ -47,12 +47,12 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
     const tfmonthlite = document.getElementById("tfmonthlite")
     const tfmonthstd = document.getElementById("tfmonthstd")
     const tfmonthunlimited = document.getElementById("tfmonthunlimited")
-    tsmonthlite.setAttribute('readonly', 'readonly')
-    tsmonthstd.setAttribute('readonly', 'readonly')
-    tsmonthunlimited.setAttribute('readonly', 'readonly')
-    tfmonthlite.setAttribute('readonly', 'readonly')
-    tfmonthstd.setAttribute('readonly', 'readonly')
-    tfmonthunlimited.setAttribute('readonly', 'readonly')
+    tsmonthlite.setAttribute('readOnly', 'readonly')
+    tsmonthstd.setAttribute('readOnly', 'readonly')
+    tsmonthunlimited.setAttribute('readOnly', 'readonly')
+    tfmonthlite.setAttribute('readOnly', 'readonly')
+    tfmonthstd.setAttribute('readOnly', 'readonly')
+    tfmonthunlimited.setAttribute('readOnly', 'readonly')
 
     let data = {
       "36months" : {
@@ -100,23 +100,23 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
     const tfmonthstd = document.getElementById("tfmonthstd")
     const tfmonthunlimited = document.getElementById("tfmonthunlimited")
 
-    if (tsmonthlite.hasAttribute('readonly')) {
-      tsmonthlite.removeAttribute('readonly')
+    if (tsmonthlite.hasAttribute('readOnly')) {
+      tsmonthlite.removeAttribute('readOnly')
     }
-    if (tsmonthstd.hasAttribute('readonly')) {
-      tsmonthstd.removeAttribute('readonly')
+    if (tsmonthstd.hasAttribute('readOnly')) {
+      tsmonthstd.removeAttribute('readOnly')
     }
-    if (tsmonthunlimited.hasAttribute('readonly')) {
-      tsmonthunlimited.removeAttribute('readonly')
+    if (tsmonthunlimited.hasAttribute('readOnly')) {
+      tsmonthunlimited.removeAttribute('readOnly')
     }
-    if (tfmonthlite.hasAttribute('readonly')) {
-      tfmonthlite.removeAttribute('readonly')
+    if (tfmonthlite.hasAttribute('readOnly')) {
+      tfmonthlite.removeAttribute('readOnly')
     }
-    if (tfmonthstd.hasAttribute('readonly')) {
-      tfmonthstd.removeAttribute('readonly')
+    if (tfmonthstd.hasAttribute('readOnly')) {
+      tfmonthstd.removeAttribute('readOnly')
     }
-    if (tfmonthunlimited.hasAttribute('readonly')) {
-      tfmonthunlimited.removeAttribute('readonly')
+    if (tfmonthunlimited.hasAttribute('readOnly')) {
+      tfmonthunlimited.removeAttribute('readOnly')
     }
   }
   // Effects ----------------------------------------------------------------- //
@@ -138,7 +138,7 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
       <td>
         <input type="HIDDEN" size="3" value="30" onChange={(e) => console.log(e)} />
         <input id="tsmonthlite"
-        readonly="readonly"
+        readOnly
         size="6"
         value={matrix["36months"].lite || ''}
         onChange={(e) => dispatch({
@@ -146,7 +146,7 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
           payload: e.target.value
         })} /></td>
       <td><input id="tsmonthstd"
-        readonly="readonly"
+        readOnly
         size="6"
         value={matrix["36months"].standard || ''}
         onChange={(e) => dispatch({
@@ -154,7 +154,7 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
           payload: e.target.value
         })} /></td>
       <td><input id="tsmonthunlimited"
-        readonly="readonly"
+        readOnly
         size="6"
         value={matrix["36months"].unlimited || ''}
         onChange={(e) => dispatch({
@@ -165,7 +165,7 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
       <tr>
       <td>24months:</td>
       <td><input id="tfmonthlite"
-        readonly="readonly"
+        readOnly
         size="6"
         value={matrix["24months"].lite || ''}
         onChange={(e) => dispatch({
@@ -173,7 +173,7 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
           payload: e.target.value
         })} /></td>
       <td><input id="tfmonthstd"
-        readonly="readonly"
+        readOnly
         size="6"
         value={matrix["24months"].standard || ''}
         onChange={(e) => dispatch({
@@ -181,7 +181,7 @@ const MatrixTable: import('react').FC<Omit<Props, 'initialMatrix'>> = ({ classNa
           payload: e.target.value
         })} /></td>
       <td><input id="tfmonthunlimited"
-        readonly="readonly"
+        readOnly
         size="6"
         value={matrix["24months"].unlimited || ''}
         onChange={(e) => dispatch({
